@@ -169,6 +169,11 @@ button {
 	cursor: pointer;
 }
 
+.delete-btn,
+.edit-btn {
+	font-size: 1.5rem;
+}
+
 .error-text {
 	color: firebrick;
 }

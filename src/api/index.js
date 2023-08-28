@@ -33,3 +33,7 @@ export const apiDeleteTodos = (id, headers) =>
 // 切換待辦狀態
 export const apiPatchTodos = (id, headers) =>
 	todoBase.patch(`/todos/${id}/toggle`, {}, headers);
+
+// 編輯待辦文字
+export const apiPutTodos = (id, data, headers) =>
+	todoBase.put(`/todos/${id}`, data, headers);

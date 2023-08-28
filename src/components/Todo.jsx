@@ -6,6 +6,7 @@ import {
 	apiPostTodos,
 	apiDeleteTodos,
 	apiPatchTodos,
+	apiPutTodos,
 } from "../api";
 import TodoItem from "./TodoItem";
 
@@ -15,6 +16,8 @@ const Todo = ({ todoToken }) => {
 	const [input, setInput] = useState("");
 	const [check, setCheck] = useState(false);
 	const [nickname, setNickname] = useState("");
+	// 取當下要編輯的那筆 id
+	const [editTarget, setEditTarget] = useState({});
 
 	const headers = {
 		Authorization: todoToken,
@@ -70,6 +73,12 @@ const Todo = ({ todoToken }) => {
 	// 切換狀態（是否完成）
 	const toggleTodo = (id) => {
 		apiPatchTodos(id, { headers });
+		getTodos();
+	};
+
+	const updateTodo = (id, content) => {
+		apiPutTodos(id, { content }, { headers });
+		setEditTarget({});
 		getTodos();
 	};
 
@@ -157,6 +166,9 @@ const Todo = ({ todoToken }) => {
 														status={item.status}
 														toggleTodo={toggleTodo}
 														deleteTodo={deleteTodo}
+														editTarget={editTarget}
+														setEditTarget={setEditTarget}
+														updateTodo={updateTodo}
 													/>
 												);
 											})}
