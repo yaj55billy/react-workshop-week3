@@ -8,7 +8,6 @@ const SignIn = ({ setToken }) => {
 		register, // state
 		handleSubmit, // 處理 submit
 	} = useForm(); // 從 useForm 這個功能解構出 register handleSubmit
-	// setToken
 	const [message, setMessage] = useState("");
 	const [error, setError] = useState(false);
 

@@ -16,7 +16,6 @@ const Todo = ({ todoToken }) => {
 	const [input, setInput] = useState("");
 	const [check, setCheck] = useState(false);
 	const [nickname, setNickname] = useState("");
-	// 取當下要編輯的那筆 id
 	const [editTarget, setEditTarget] = useState({});
 
 	const headers = {
@@ -76,6 +75,7 @@ const Todo = ({ todoToken }) => {
 		getTodos();
 	};
 
+	// 編輯項目
 	const updateTodo = (id, content) => {
 		apiPutTodos(id, { content }, { headers });
 		setEditTarget({});

@@ -12,8 +12,6 @@ const SignUp = () => {
 	const [error, setError] = useState(false);
 
 	const onSubmit = (data) => {
-		// 這個是自定義的 submit
-		// billymind2
 		apiUsersSignUp(data)
 			.then(() => {
 				setMessage("恭喜註冊成功~");
